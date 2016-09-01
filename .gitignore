@@ -1,0 +1,13 @@
+*.sublime-project
+*.sublime-workspace
+Thumbs.db
+
+node_modules/
+vendor/
+.idea/
+.env
+*.log
+
+logs/
+work/
+*.war

@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <link href="../css/bootstrap.css" rel="stylesheet" />
+  
+  <link href="../css/pe-icon-7-stroke.css" rel="stylesheet" />
+  <link href="../css/ct-navbar.css" rel="stylesheet" />  
+  <link rel="stylesheet" type="text/css" href="../css/styleSheet.css">
+  <link rel="shortcut icon" href="../img/MusikFlowerTab.svg" type="image/x-icon" />
+  <link href="../libs/fine-uploader/fine-uploader-new.css" rel="stylesheet">
+
+  <script src="../libs/fine-uploader/fine-uploader.js"></script>
+
+  <script type="text/template" id="qq-template-img">
+  <div class="qq-uploader-selector qq-uploader" qq-drop-area-text="jpg-Dateien hier ablegen">
+  
+  <div class="qq-upload-drop-area-selector qq-upload-drop-area" qq-hide-dropzone>
+  <span class="qq-upload-drop-area-text-selector"></span>
+  </div>
+  <div class="buttons">
+  <div class="qq-upload-button-selector qq-upload-button" style="margin-right: 5%;">
+  <div>Dateien auswählen</div>
+  </div>
+  
+  </div>
+  <div class="qq-total-progress-bar-container-selector qq-total-progress-bar-container">
+  <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="qq-total-progress-bar-selector qq-progress-bar qq-total-progress-bar"></div>
+  </div>
+  <span class="qq-drop-processing-selector qq-drop-processing">
+  <span>Processing dropped files...</span>
+  <span class="qq-drop-processing-spinner-selector qq-drop-processing-spinner"></span>
+  </span>
+  <ul class="qq-upload-list-selector qq-upload-list" aria-live="polite" aria-relevant="additions removals">
+  <li>
+  <div class="qq-progress-bar-container-selector">
+  <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="qq-progress-bar-selector qq-progress-bar"></div>
+  </div>
+  <span class="qq-upload-spinner-selector qq-upload-spinner"></span>
+  <img class="qq-thumbnail-selector" qq-max-size="100" qq-server-scale>
+  <span class="qq-upload-file-selector qq-upload-file"></span>
+  <span class="qq-edit-filename-icon-selector qq-edit-filename-icon" aria-label="Edit filename"></span>
+  <input class="qq-edit-filename-selector qq-edit-filename" tabindex="0" type="text">
+  <span class="qq-upload-size-selector qq-upload-size"></span>
+  <button type="button" class="qq-btn qq-upload-cancel-selector qq-upload-cancel">Abbrechen</button>
+  <button type="button" class="qq-btn qq-upload-retry-selector qq-upload-retry">Wiederholen</button>
+  <button type="button" class="qq-btn qq-upload-delete-selector qq-upload-delete">Löschen</button>
+  <span role="status" class="qq-upload-status-text-selector qq-upload-status-text"></span>
+  </li>
+  </ul>
+
+  <dialog class="qq-alert-dialog-selector">
+  <div class="qq-dialog-message-selector"></div>
+  <div class="qq-dialog-buttons">
+  <button type="button" class="qq-cancel-button-selector">Schließen</button>
+  </div>
+  </dialog>
+
+  <dialog class="qq-confirm-dialog-selector">
+  <div class="qq-dialog-message-selector"></div>
+  <div class="qq-dialog-buttons">
+  <button type="button" class="qq-cancel-button-selector">No</button>
+  <button type="button" class="qq-ok-button-selector">Yes</button>
+  </div>
+  </dialog>
+
+  <dialog class="qq-prompt-dialog-selector">
+  <div class="qq-dialog-message-selector"></div>
+  <input type="text">
+  <div class="qq-dialog-buttons">
+  <button type="button" class="qq-cancel-button-selector">Cancel</button>
+  <button type="button" class="qq-ok-button-selector">Ok</button>
+  </div>
+  </dialog>
+  </div>
+  </script>
+
+  <script type="text/template" id="qq-template-xml">
+  <div class="qq-uploader-selector qq-uploader" qq-drop-area-text="xml-Dateien hier ablegen">
+  
+  <div class="qq-upload-drop-area-selector qq-upload-drop-area" qq-hide-dropzone>
+  <span class="qq-upload-drop-area-text-selector"></span>
+  </div>
+  <div class="buttons">
+  <div class="qq-upload-button-selector qq-upload-button" style="margin-right: 5%;">
+  <div>Dateien auswählen</div>
+  </div>
+  </div>
+  <div class="buttons">
+  <button type="button" id="imgXml-cross" class="btn btn-primary" style="right: 22px; position: absolute; top: 22px;">
+  <i class="icon-upload icon-white"></i> X
+  </button>
+  </div>
+  <div class="qq-total-progress-bar-container-selector qq-total-progress-bar-container">
+  <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="qq-total-progress-bar-selector qq-progress-bar qq-total-progress-bar"></div>
+  </div>
+  <ul class="qq-upload-list-selector qq-upload-list" aria-live="polite" aria-relevant="additions removals">
+  <li>
+  <div class="qq-progress-bar-container-selector">
+  <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="qq-progress-bar-selector qq-progress-bar"></div>
+  </div>
+  <span class="qq-upload-spinner-selector qq-upload-spinner"></span>
+  
+  <span class="qq-upload-file-selector qq-upload-file"></span>
+  <span class="qq-edit-filename-icon-selector qq-edit-filename-icon" aria-label="Edit filename"></span>
+  <input class="qq-edit-filename-selector qq-edit-filename" tabindex="0" type="text">
+  <span class="qq-upload-size-selector qq-upload-size"></span>
+  <button type="button" class="qq-btn qq-upload-cancel-selector qq-upload-cancel">Abbrechen</button>
+  <button type="button" class="qq-btn qq-upload-retry-selector qq-upload-retry">Wiederholen</button>
+  <button type="button" class="qq-btn qq-upload-delete-selector qq-upload-delete">Löschen</button>
+  <span role="status" class="qq-upload-status-text-selector qq-upload-status-text"></span>
+  </li>
+  </ul>
+  
+  
+  <span class="qq-drop-processing-selector qq-drop-processing">
+  <span>Processing dropped files...</span>
+  <span class="qq-drop-processing-spinner-selector qq-drop-processing-spinner"></span>
+  </span>
+  
+
+  <dialog class="qq-alert-dialog-selector">
+  <div class="qq-dialog-message-selector"></div>
+  <div class="qq-dialog-buttons">
+  <button type="button" class="qq-cancel-button-selector">Schließen</button>
+  </div>
+  </dialog>
+
+  <dialog class="qq-confirm-dialog-selector">
+  <div class="qq-dialog-message-selector"></div>
+  <div class="qq-dialog-buttons">
+  <button type="button" class="qq-cancel-button-selector">No</button>
+  <button type="button" class="qq-ok-button-selector">Yes</button>
+  </div>
+  </dialog>
+
+  <dialog class="qq-prompt-dialog-selector">
+  <div class="qq-dialog-message-selector"></div>
+  <input type="text">
+  <div class="qq-dialog-buttons">
+  <button type="button" class="qq-cancel-button-selector">Cancel</button>
+  <button type="button" class="qq-ok-button-selector">Ok</button>
+  </div>
+  </dialog>
+  </div>
+  </script>
+
+  <script type="text/template" id="qq-template-table">
+  <div class="qq-uploader-selector qq-uploader" qq-drop-area-text="Xls-Dateien hier ablegen">
+  <div class="qq-upload-drop-area-selector qq-upload-drop-area" qq-hide-dropzone>
+  <span class="qq-upload-drop-area-text-selector"></span>
+  </div>
+  <div class="buttons">
+  <button type="button" id="table-cross" class="btn btn-primary" style="right: 22px; position: absolute;">
+  <i class="icon-upload icon-white"></i> X
+  </button>
+  </div>
+  <div class="buttons" style="position: absolute; bottom: 5px; left: 36%; margin: 10px;">
+  <div class="qq-upload-button-selector qq-upload-button">
+  <div>Dateien auswählen</div>
+  </div>
+  <button type="button" id="trigger-upload-table" class="btn btn-primary" style="margin-right:15px;">
+  <i class="icon-upload icon-white"></i> Hochladen
+  </button>
+  <button type="button" id="cancel-button-table" class="btn btn-primary" >
+  <i class="icon-upload icon-white"></i> Abbrechen
+  </button>
+  </div>
+  <div class="qq-total-progress-bar-container-selector qq-total-progress-bar-container">
+  <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="qq-total-progress-bar-selector qq-progress-bar qq-total-progress-bar"></div>
+  </div>
+  <span class="qq-drop-processing-selector qq-drop-processing">
+  <span>Processing dropped files...</span>
+  <span class="qq-drop-processing-spinner-selector qq-drop-processing-spinner"></span>
+  </span>
+  <ul class="qq-upload-list-selector qq-upload-list" aria-live="polite" aria-relevant="additions removals">
+  <li>
+  <div class="qq-progress-bar-container-selector">
+  <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="qq-progress-bar-selector qq-progress-bar"></div>
+  </div>
+  <span class="qq-upload-spinner-selector qq-upload-spinner"></span>
+  <span class="qq-upload-file-selector qq-upload-file"></span>
+  <span class="qq-edit-filename-icon-selector qq-edit-filename-icon" aria-label="Edit filename"></span>
+  <input class="qq-edit-filename-selector qq-edit-filename" tabindex="0" type="text">
+  <span class="qq-upload-size-selector qq-upload-size"></span>
+  <button type="button" class="qq-btn qq-upload-cancel-selector qq-upload-cancel">Abbrechen</button>
+  <button type="button" class="qq-btn qq-upload-retry-selector qq-upload-retry">Wiederholen</button>
+  <button type="button" class="qq-btn qq-upload-delete-selector qq-upload-delete">Löschen</button>
+  <span role="status" class="qq-upload-status-text-selector qq-upload-status-text"></span>
+  </li>
+  </ul>
+
+  <dialog class="qq-alert-dialog-selector">
+  <div class="qq-dialog-message-selector"></div>
+  <div class="qq-dialog-buttons">
+  <button type="button" class="qq-cancel-button-selector">Schließen</button>
+  </div>
+  </dialog>
+
+  <dialog class="qq-confirm-dialog-selector">
+  <div class="qq-dialog-message-selector"></div>
+  <div class="qq-dialog-buttons">
+  <button type="button" class="qq-cancel-button-selector">Nein</button>
+  <button type="button" class="qq-ok-button-selector">Ja</button>
+  </div>
+  </dialog>
+
+  <dialog class="qq-prompt-dialog-selector">
+  <div class="qq-dialog-message-selector"></div>
+  <input type="text">
+  <div class="qq-dialog-buttons">
+  <button type="button" class="qq-cancel-button-selector">Abbrechen</button>
+  <button type="button" class="qq-ok-button-selector">Ok</button>
+  </div>
+  </dialog>
+  </div>
+
+  </script>
+
+</head>
+
+<body>
+ <div id="navbar-full">
+  <div id="navbar">
+       <!--    
+        navbar-default can be changed with navbar-ct-blue navbar-ct-azzure navbar-ct-red navbar-ct-green navbar-ct-orange  
+      -->
+      <nav class="navbar navbar-ct-grey navbar-fixed-top navbar-transparent2" role="navigation">
+        
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand navbar-brand-logo" href="../index.html">
+              <div class="logo">
+                <img id= "logo" src="../img/MusikFlower.svg">
+              </div>
+              <div class="brand"> Digitale Liedblattsammlung </div>
+            </a>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              
+              <li id="menu-item-search">
+                <a href="SearchView.html">
+                  <i class="pe-7s-search">
+                  </i>
+                  <p>Suche</p>
+                </a>
+              </li>
+              <li id="menu-item-gallery">
+                <a href="GalleryView.html?start=0&111">
+                  <i class="pe-7s-musiclist">
+                  </i>
+                  <p>Galerie</p>
+                </a>
+              </li>  
+              <li id="menu-item-detail">
+                <a href="LiedblattDetailView.html">
+                  <i class="pe-7s-note">
+                  </i>
+                  <p>Letztes Blatt</p>
+                </a>
+              </li>
+              <li id="menu-item-upload">
+                <a href="UploadView.html">
+                  <i class="pe-7s-cloud-upload">
+                  </i>
+                  <p>Hochladen</p>
+                </a>
+              </li>
+              <li id="menu-item-analyse">
+                <a href="AnalyseView.html">
+                  <i class="pe-7s-graph">
+                  </i>
+                  <p>Statistik</p>
+                </a>
+              </li>
+              <li id="menu-item-help">
+                <a href="HelpView.html">
+                  <i class="pe-7s-help1">
+                  </i>
+                  <p>Hilfe</p>
+                </a>
+              </li>    
+              <li id="login-dropdown" class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="pe-7s-user"></i>
+                  <!--class="pe-7s-id"-->
+                  <p id="login-info"></p>
+                </a>
+                <ul id="login-dp" class="dropdown-menu">
+                  <li><form class="form" role="form" accept-charset="UTF-8" id="login-nav" novalidate>
+                    <div id="username-form" class="form-group">
+                     <label class="sr-only" for="usernameLogin">Email address</label>
+                     <input  class="form-control" id="usernameLogin" placeholder="Benutzername" required>
+                   </div>
+                   <div id="password-form" class="form-group">
+                     <label class="sr-only" for="passwordLogin">Password</label>
+                     <input type="password" class="form-control" id="passwordLogin" placeholder="Passwort" required>
+                     <!--<div class="help-block text-right"><a href="">Forget the password ?</a></div>-->
+                   </div>
+                   <div class="form-group">
+                     <button id="login" class="btn btn-primary btn-block">Anmelden</button>
+                   </div>
+                   <div id="failed-login">Falscher Nutzername oder Passwort</div>
+                   <div id="prompt-login">Bitte einloggen für diese Funktion</div>
+                   <div class="form-group">
+                     <div id="login-text"></div>
+                     <button id="logout" class="btn btn-pdelete btn-block">Abmelden</button>
+                   </div>
+                 </form>
+               </li>
+             </ul>
+           </li>
+         </ul>
+         
+       </div><!-- /.navbar-collapse -->
+     </div><!-- /.container-fluid -->
+   </nav>
+ </div><!--  end navbar -->
+
+</div> <!-- end menu-dropdown -->
+<div class="main">
+  <div class="container tim-container" id="tim-container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2>Upload</h2>
+        <p class="lead">Hier können Sie Dateien zum Hochladen auswählen. Diese werden in die digitale Sammlung aufgenommen und können von den Nutzern durchsucht und bearbeitet werden.</p>
+        <div class="row mt" id="uploadBoxesUpper">
+          <div class="col-lg-12">
+            <h4>Hochladen der Liedblätter</h4>
+            <p>Über „Datei Auswählen“ können sie die Dateien der gescannten Liedblätter auswählen. Zu jedem Blatt gehört eine JPEG-Datei, die ein Abbild des gescannten Blattes ist und eine XML-Datei, die die Ergebnisse der automatischen Zeichenerkennung enthält. <br><br>
+            Die beiden Dateien können nur gemeinsam in die Sammlung hochgeladen werden.<br> 
+            Damit sie einander zugeordnet werden können, müssen sie denselben Namen haben. Die korrekte Benennung sollte durch Abbyy automatisch vorgenommen werden.</p>
+              <div class="table table-striped" class="files" id="previews">
+               <div id="template" class="file-row">
+                
+                <div>
+                  <span class="preview"><img data-dz-thumbnail /></span>
+                </div>
+                <div>
+                  <p class="name" data-dz-name></p>
+                  <strong class="error text-danger" data-dz-errormessage></strong>
+                </div>
+                
+                <div id="uploadBoxesUpperInnerInner">
+                  <button id="imgXmlUpload-button" class="btn btn-primary start" data-toggle="modal" data-target="#imgXmlUpload">
+                    <i class="glyphicon glyphicon-upload"></i>
+                    <span>Dateien auswählen</span>
+                  </button>
+                  
+                </div>
+              </div>
+
+            </div>
+          </div><!-- /colg-lg-6 -->
+          
+          <div class="col-lg-6">
+              <div class="table table-striped" class="files" id="previews">
+
+                <div id="template" class="file-row">
+                  
+                  <div>
+                    <span class="preview"><img data-dz-thumbnail /></span>
+                  </div>
+                  <div>
+                    <p class="name" data-dz-name></p>
+                    <strong class="error text-danger" data-dz-errormessage></strong>
+                  </div>
+
+                </div>
+              </div>
+            </div><!-- /col-lg-6 -->
+          </div><!-- /row -->
+
+          <div class="row mt" id="uploadBoxes">
+            <div class="col-lg-7" id="uploadBoxesInner">
+              <h4>Hochladen neuer Metadaten</h4>
+              <p>Hier können Sie Metadaten hochladen, die bereits digitalisiert wurden. Diese können später von den Nutzern den entsprechenden Liedblättern zugeordnet und überarbeitet werden. 
+                Bitte beachten Sie: <br/> 
+                Die Metadaten müssen in Form einer Excel-Tabelle vorliegen.</p>
+                <div class="table table-striped" class="files" id="previews">
+
+                  <div id="template" class="file-row">
+                    
+                    <div>
+                      <span class="preview"><img data-dz-thumbnail /></span>
+                    </div>
+                    <div>
+                      <p class="name" data-dz-name></p>
+                      <strong class="error text-danger" data-dz-errormessage></strong>
+                    </div>
+                    
+                    <div id="uploadBoxesInnerInner">
+                      <button id="tableUpload-button" class="btn btn-primary start" data-toggle="modal" data-target="#tableUpload">
+                        <i class="glyphicon glyphicon-upload"></i>
+                        <span>Dateien auswählen</span>
+                      </button>
+                      
+                    </div>
+                    <br><br>
+                  </div>
+                </div>
+              </div>
+              <!-- content -->
+              
+              
+
+            </div><!-- /colg-lg-6 -->
+            
+            
+            <!-- Modal -->
+
+            <div id="imgXmlUpload" class="modal fade" role="dialog">
+              <div class="modal-dialog upload-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div id="uploader-imgXml">
+                    <div id="fine-uploader-img"></div>
+                    <div id="fine-uploader-xml"></div>
+                  </div>
+                  
+                  <div id="imgXmlUploadButtons">
+                    <button type="button" id="trigger-upload-imgXml" class="btn btn-primary" style="margin:15px;">
+                      <i class="icon-upload icon-white"></i> Hochladen
+                    </button>
+                    <button type="button" id="cancel-button-imgXml" class="btn btn-primary" style="margin-left: 5%;">
+                      <i class="icon-upload icon-white"></i> Abbrechen
+                    </button>
+                  </div>
+                  <div id="compareErrorMessage"></div>
+                </div>
+
+              </div>
+            </div>
+
+            <div id="tableUpload" class="modal fade" role="dialog">
+              <div class="modal-dialog upload-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div id="fine-uploader-table"></div>
+                  <div id="tableProcessEndInfo"></div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <!-- container content  -->
+  <!-- 
+
+      
+     <div class="table table-striped" class="files" id="previews">
+
+  <div id="template" class="file-row">
+  
+    <div>
+        <span class="preview"><img data-dz-thumbnail /></span>
+    </div>
+    <div>
+        <p class="name" data-dz-name></p>
+        <strong class="error text-danger" data-dz-errormessage></strong>
+    </div>
+    <div>
+        <p class="size" data-dz-size></p>
+        <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="progress-bar progress-bar-success" style="width:0%;" data-dz-uploadprogress></div>
+        </div>
+    </div>
+    <div>
+      <button class="btn btn-primary start">
+          <i class="glyphicon glyphicon-upload"></i>
+          <span>Selectieren</span>
+      </button>
+      <button data-dz-remove class="btn btn-danger delete">
+        <i class="glyphicon glyphicon-trash"></i>
+        <span>Löschen</span>
+      </button>
+    </div>
+  </div>
+
+</div>
+--> 
+
+<!-- container content end-->
+</div>   
+</div>
+<!-- end main -->
+<!-- +++++ Footer Section +++++ -->   
+<div id="footer">
+  <div class="container" > 
+    <div class="col-md-9 col-md-offset-2">
+      <div class="row">
+         <div class="col-sm-5">
+          <h4>Ansprechpartner</h4>
+          <p><a href="mailto: manuel.burghardt@ur.de">Dr. Manuel Burghardt</a><br/>
+            Universität Regensburg<br/>
+            Universitätsstraße 1, <br/>
+            Regensburg, Deutschland
+          </p>
+        </div>
+        
+        <div class="col-sm-5" id="footerHilfeLinks">
+          <h4>Hilfe Links</h4>
+          <p>
+           <a href="HelpView.html">Hilfe</a>
+           & <a href="HelpView.html#faqanchor">FAQ</a><br/>
+           <a href="HelpView.html#glossaranchor">Glossar</a><br/>
+           <a href="ImpressumView.html#contactsanchor">Kontakt</a><br/>
+           <a href="ImpressumView.html#impresssanchor">Impressum</a>
+         </p>
+         <br>
+       </div>
+     </div>
+   </div>          
+ </div>
+</div>
+<!-- +++++ Footer Section Ende +++++ -->
+</body>
+
+<script src="../js/libs/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="../js/libs/bootstrap.js" type="text/javascript"></script>
+<script src="../js/libs/ct-navbar.js"></script>
+<script src="../js/libs/js.cookie.js"></script>
+<script src="../js/Authentication.js"></script>
+<script src="../js/Global.js"></script>
+
+<script src="../js/upload/Upload.js" type="text/javascript"></script>
+<script src="../js/upload/UploadController.js" type="text/javascript"></script>
+<script src="../js/upload/UploadView.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+$("#menu-item-upload").addClass("active");
+$(function() {
+  Upload.init();
+});
+
+
+</script>
+
+</html>

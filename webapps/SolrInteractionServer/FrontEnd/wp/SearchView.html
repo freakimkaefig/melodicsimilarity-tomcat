@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <link href="../css/bootstrap.css" rel="stylesheet" />
+  
+  <link href="../css/pe-icon-7-stroke.css" rel="stylesheet" />
+  <link href="../css/ct-navbar.css" rel="stylesheet" />  
+  <link rel="stylesheet" type="text/css" href="../css/styleSheet.css">
+  <link rel="shortcut icon" href="../img/MusikFlowerTab.svg" type="image/x-icon" />
+  
+  <!--     Font Awesome     -->
+  
+  <style>
+  
+  </style>
+</head>
+
+<body>
+ <div id="navbar-full">
+  <div id="navbar">
+       <!--    
+        navbar-default can be changed with navbar-ct-blue navbar-ct-azzure navbar-ct-red navbar-ct-green navbar-ct-orange  
+      -->
+      <nav class="navbar navbar-ct-grey navbar-fixed-top navbar-transparent2" role="navigation">
+        
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand navbar-brand-logo" href="../index.html">
+              <div class="logo">
+                <img id= "logo" src="../img/MusikFlower.svg">
+              </div>
+              <div class="brand"> Digitale Liedblattsammlung </div>
+            </a>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              
+              <li id="menu-item-search">
+                <a href="SearchView.html">
+                  <i class="pe-7s-search">
+                  </i>
+                  <p>Suche</p>
+                </a>
+              </li>
+              <li id="menu-item-gallery">
+                <a href="GalleryView.html?start=0&111">
+                  <i class="pe-7s-musiclist">
+                  </i>
+                  <p>Galerie</p>
+                </a>
+              </li>  
+              <li id="menu-item-detail">
+                <a href="LiedblattDetailView.html">
+                  <i class="pe-7s-note">
+                  </i>
+                  <p>Letztes Blatt</p>
+                </a>
+              </li>
+              <li id="menu-item-upload">
+                <a href="UploadView.html">
+                  <i class="pe-7s-cloud-upload">
+                  </i>
+                  <p>Hochladen</p>
+                </a>
+              </li>
+              <li id="menu-item-analyse">
+                <a href="AnalyseView.html">
+                  <i class="pe-7s-graph">
+                  </i>
+                  <p>Statistik</p>
+                </a>
+              </li>
+              <li id="menu-item-help">
+                <a href="HelpView.html">
+                  <i class="pe-7s-help1">
+                  </i>
+                  <p>Hilfe</p>
+                </a>
+              </li>   
+              <li id="login-dropdown" class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="pe-7s-user"></i>
+                  <!--class="pe-7s-id"-->
+                  <p id="login-info"></p>
+                </a>
+                <ul id="login-dp" class="dropdown-menu">
+                  <li><form class="form" role="form" accept-charset="UTF-8" id="login-nav" novalidate>
+                    <div id="username-form" class="form-group">
+                     <label class="sr-only" for="usernameLogin">Email address</label>
+                     <input  class="form-control" id="usernameLogin" placeholder="Benutzername" required>
+                   </div>
+                   <div id="password-form" class="form-group">
+                     <label class="sr-only" for="passwordLogin">Password</label>
+                     <input type="password" class="form-control" id="passwordLogin" placeholder="Passwort" required>
+                     <!--<div class="help-block text-right"><a href="">Forget the password ?</a></div>-->
+                   </div>
+                   <div class="form-group">
+                     <button id="login" class="btn btn-primary btn-block">Anmelden</button>
+                   </div>
+                   <div id="failed-login">Falscher Nutzername oder Passwort</div>
+                   <div id="prompt-login">Bitte einloggen für diese Funktion</div>
+                   <div class="form-group">
+                     <div id="login-text"></div>
+                     <button id="logout" class="btn btn-pdelete btn-block">Abmelden</button>
+                   </div>
+                 </form>
+               </li>
+             </ul>
+           </li>
+         </ul>
+         
+       </div><!-- /.navbar-collapse -->
+     </div><!-- /.container-fluid -->
+   </nav>
+ </div><!--  end navbar -->
+
+</div> <!-- end menu-dropdown -->
+<div class="main" id="main">
+  <div class="container tim-container" id="tim-container">
+    <br/><br/>
+    <div class="col-lg-12 text-center">        
+      <div class="row">                       
+        <div class="search-view">
+         <h3>Suchen Sie nach Liedblättern </h3>
+         <br/>
+         <br/> 
+         <label for="searchAllInput" class="searchAllInputLabel">
+          <input id="searchAllInput" class="textFieldMain" name="text" placeholder="Freie Suche">
+        </label>
+        <br/>
+        <br/> 
+        <br/> 
+        <div>
+          <p class="zustandText">Bearbeitungszustand:</p>
+          <label class="checkedBox">
+            <input type="checkbox" name="check" default="eddited" checked id="checkBoxEdited"> <!-- e<img class="statiIcons" src="../img/icons/doneW.png"> --> Vollständig editiert
+          </label> 
+
+          <label class="checkedBox">
+            <input type="checkbox" name="check" default="uneddetied" checked id="checkBoxUnedited"><!-- e<img class="statiIcons" src="../img/icons/noneW.png"> --> Unbearbeitet
+          </label> 
+          <label class="checkedBox">
+            <input type="checkbox" name="check" default="design" checked id="checkBoxDesign"><!-- e<img class="statiIcons" src="../img/icons/editW.png"> --> Als Entwurf gespeichert
+          </label> 
+        </div>
+        
+        <br>
+        <br/> 
+        <p class="zustandText">Metadatensuche:</p>
+        <label for="searchTextInput" class="searchAllInputLabel">
+          <input id="searchTextInput" class="textFieldMain2" name="text" placeholder="Liedtext Suche">
+        </label><br>
+        <label for="signatureInput">
+          <input id="signatureInput" class="textField" name="signature" placeholder="Signatur Nummer">
+        </label>
+        <label for="incipitInput">
+          <input id="incipitInput" class="textField" name="incipit" placeholder="Incipit">
+        </label>
+        <label for="archiveInput">
+          <input id="archiveInput" class="textField" name="archive" placeholder="Archivort">
+        </label>
+        <br/>
+        <br>
+        <p class="zustandTextMehr">Mehr:</p>
+        <button id="extendedSearch1Button" class="btn-circle">
+          <i id="extendedSearch1I" class="glyphicon glyphicon-chevron-down" title="Erweiterte Suche ausklappen"></i>
+          <span></span>
+        </button>
+        
+        <br>
+
+        <br>
+        <span id="extendedSearch1">
+          
+          <br>
+          <label for="dateFindAidInput">
+            <input id="dateFindAidInput" class="textField" name="dateFindAid" placeholder="Dat. Findbuch">
+          </label>
+          <label for="oldSignatureInput">
+            <input id="oldSignatureInput" class="textField" name="oldSignature" placeholder="Altsignatur">
+          </label>
+          <label for="receivedOnInput">
+            <input id="receivedOnInput" class="textField" name="receivedOn" placeholder="Erhalten am">
+          </label>
+          <label for="versionNumberInput">
+            <input id="versionNumberInput" class="textField" name="versionNumber" placeholder="Versionsnummer">
+          </label>
+          <label for="missingCauseInput">
+            <input id="missingCauseInput" class="textField" name="missingCause" placeholder="Fehlt, weil..">
+          </label>
+          <label for="originInput">
+            <input id="originInput" class="textField" name="origin" placeholder="Herkunft">
+          </label>
+          <label for="titleInput">
+            <input id="titleInput" class="textField" name="title" placeholder="Titel">
+          </label>
+          <label for="typeInput">
+            <input id="typeInput" class="textField" name="type" placeholder="Liedgattung">
+          </label>
+
+          <label for="includesInput">
+            <input id="includesInput" class="textField" name="includes" placeholder="Umfasst">
+          </label>
+          <label for="numberOfPagesInput">
+            <input id="numberOfPagesInput" class="textField" name="numberOfPages" placeholder="Blattzahl">
+          </label>
+          <label for="singPlaceInput">
+            <input id="singPlaceInput" class="textField" name="singPlace" placeholder="Sangesort">
+          </label>
+          <label for="remarkInput">
+            <input id="remarkInput" class="textField" name="remark" placeholder="Bemerkung">
+          </label>
+
+          <label for="landscapeArchiveInput">
+            <input id="landscapeArchiveInput" class="textField" name="landscapeArchive" placeholder="Landschaftsarchiv">
+          </label>
+          <label for="publicationInput">
+            <input id="publicationInput" class="textField" name="publication" placeholder="Veröffentlichung">
+          </label>
+          <label for="sungOnInput">
+            <input id="sungOnInput" class="textField" name="sungOn" placeholder="Gesungen am">
+          </label>
+          <label for="recordedOnInput">
+            <input id="recordedOnInput" class="textField" name="recordedOn" placeholder="Aufgezeichnet am">
+          </label>
+          <label for="submittedOnInput">
+            <input id="submittedOnInput" class="textField"name="submittedOn" placeholder="Eingesandt am">
+          </label>
+
+          <label for="singerInput">
+            <input id="singerInput" class="textField" name="singer" placeholder="Sänger/in">
+          </label>
+          <label for="referenceInput">
+            <input id="referenceInput" class="textField" name="reference" placeholder="Verweis">
+          </label>
+          <label for="handwrittenSourceInput">
+            <input id="handwrittenSourceInput" class="textField" name="handwrittenSource" placeholder="Quelle">
+          </label>
+          <label for="recorderInput">
+            <input id="recorderInput" class="textField" name="recorder" placeholder="Aufzeichner">
+          </label>
+
+          <label for="lastChangedPersonInput">
+            <input id="lastChangedPersonInput" class="textField" name="lastChangedPerson" placeholder="Zuletzt geändert von">
+          </label>
+
+          <br>
+        </span>
+        <br>
+        
+        <button id="refreshButton" class="btn" style="background: rgba(64, 64, 64, 0.7);; color: #ffffff; margin-right:2%;">
+          <i class="glyphicon glyphicon-refresh"></i>
+          <span>Zurücksetzten</span>
+        </button> 
+        <button id="searchButton" class="btn btn-primary start" style="">
+          <i class="glyphicon glyphicon-search"></i>
+          <span>Suchen</span>
+        </button>
+        <br>
+        <br>
+        
+      </div>
+    </div>
+  </div>
+  <div id="loading-spinner-div-search">
+    <p>Suchergebnisse werden geladen...</p>
+    <span class="glyphicon glyphicon-repeat glyphicon-repeat-animate">
+    </span>
+  </div>
+  <div  id="resultsHeader"></div>
+  <div class="text-center">
+    <nav>
+      <ul class="pagination" id="paginationTop"></ul>
+    </nav>
+  </div>
+  <div id="displayResults"></div>
+  <div class="text-center">
+    <nav>
+      <ul class="pagination" id="paginationBottom"></ul>
+    </nav>
+  </div>
+
+  <!-- main-->
+</div>
+</div>
+<!-- end main -->
+<!-- +++++ Footer Section +++++ -->   
+<div id="footer">
+  <div class="container" > 
+    <div class="col-md-9 col-md-offset-2">
+      <div class="row">
+         <div class="col-sm-5">
+          <h4>Ansprechpartner</h4>
+          <p><a href="mailto: manuel.burghardt@ur.de">Dr. Manuel Burghardt</a><br/>
+            Universität Regensburg<br/>
+            Universitätsstraße 1, <br/>
+            Regensburg, Deutschland
+          </p>
+        </div>
+        
+        <div class="col-sm-5" id="footerHilfeLinks">
+          <h4>Hilfe Links</h4>
+          <p>
+           <a href="HelpView.html">Hilfe</a>
+           & <a href="HelpView.html#faqanchor">FAQ</a><br/>
+           <a href="HelpView.html#glossaranchor">Glossar</a><br/>
+           <a href="ImpressumView.html#contactsanchor">Kontakt</a><br/>
+           <a href="ImpressumView.html#impresssanchor">Impressum</a>
+         </p>
+         <br>
+       </div>
+     </div>
+   </div>           
+ </div>
+</div>
+<!-- +++++ Footer Section Ende +++++ -->
+</body>
+
+<script src="../js/libs/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="../js/libs/bootstrap.js" type="text/javascript"></script>
+<script src="../js/libs/ct-navbar.js"></script>
+<script src="../js/libs/js.cookie.js"></script>
+<script src="../js/Authentication.js"></script>
+<script src="../js/Global.js"></script>
+
+<script src="../js/search/Search.js" type="text/javascript"></script>
+<script src="../js/search/SearchController.js" type="text/javascript"></script>
+<script src="../js/search/SearchModel.js" type="text/javascript"></script>
+<script src="../js/search/SearchView.js" type="text/javascript"></script>
+
+<script>
+$("#menu-item-search").addClass("active");
+$(function() {
+  Search.init();
+});
+
+
+</script>
+
+</html>

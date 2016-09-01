@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <link href="../css/bootstrap.css" rel="stylesheet" />
+  
+  <link href="../css/pe-icon-7-stroke.css" rel="stylesheet" />
+  <link href="../css/ct-navbar.css" rel="stylesheet" />  
+  <link rel="stylesheet" type="text/css" href="../css/styleSheet.css">
+  <link rel="shortcut icon" href="../img/MusikFlowerTab.svg" type="image/x-icon" />
+
+  <!--     Font Awesome     -->
+
+  <title>Detailansicht</title>
+  
+  <style>
+  
+  </style>
+</head>
+
+<body>
+ <div id="navbar-full">
+  <div id="navbar">
+       <!--    
+        navbar-default can be changed with navbar-ct-blue navbar-ct-azzure navbar-ct-red navbar-ct-green navbar-ct-orange  
+      -->
+      <nav class="navbar navbar-ct-grey navbar-fixed-top navbar-transparent2" role="navigation">
+        
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand navbar-brand-logo" href="../index.html">
+              <div class="logo">
+                <img id= "logo" src="../img/MusikFlower.svg">
+              </div>
+              <div class="brand"> Digitale Liedblattsammlung </div>
+            </a>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              
+              <li id="menu-item-search">
+                <a href="SearchView.html">
+                  <i class="pe-7s-search">
+                  </i>
+                  <p>Suche</p>
+                </a>
+              </li>
+              <li id="menu-item-gallery">
+                <a href="GalleryView.html?start=0&111">
+                  <i class="pe-7s-musiclist">
+                  </i>
+                  <p>Galerie</p>
+                </a>
+              </li>  
+              <li id="menu-item-detail">
+                <a href="LiedblattDetailView.html">
+                  <i class="pe-7s-note">
+                  </i>
+                  <p>Letztes Blatt</p>
+                </a>
+              </li>
+              <li id="menu-item-upload">
+                <a href="UploadView.html">
+                  <i class="pe-7s-cloud-upload">
+                  </i>
+                  <p>Hochladen</p>
+                </a>
+              </li>
+              <li id="menu-item-analyse">
+                <a href="AnalyseView.html">
+                  <i class="pe-7s-graph">
+                  </i>
+                  <p>Statistik</p>
+                </a>
+              </li>
+              <li id="menu-item-help">
+                <a href="HelpView.html">
+                  <i class="pe-7s-help1">
+                  </i>
+                  <p>Hilfe</p>
+                </a>
+              </li>    
+              <li id="login-dropdown" class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="pe-7s-user"></i>
+                  <!--class="pe-7s-id"-->
+                  <p id="login-info"></p>
+                </a>
+                <ul id="login-dp" class="dropdown-menu">
+                  <li><form class="form" role="form" accept-charset="UTF-8" id="login-nav" novalidate>
+                    <div id="username-form" class="form-group">
+                     <label class="sr-only" for="usernameLogin">Email address</label>
+                     <input  class="form-control" id="usernameLogin" placeholder="Benutzername" required>
+                   </div>
+                   <div id="password-form" class="form-group">
+                     <label class="sr-only" for="passwordLogin">Password</label>
+                     <input type="password" class="form-control" id="passwordLogin" placeholder="Passwort" required>
+                     <!--<div class="help-block text-right"><a href="">Forget the password ?</a></div>-->
+                   </div>
+                   <div class="form-group">
+                     <button id="login" class="btn btn-primary btn-block">Anmelden</button>
+                   </div>
+                   <div id="failed-login">Falscher Nutzername oder Passwort</div>
+                   <div id="prompt-login">Bitte einloggen für diese Funktion</div>
+                   <div class="form-group">
+                     <div id="login-text"></div>
+                     <button id="logout" class="btn btn-pdelete btn-block">Abmelden</button>
+                   </div>
+                 </form>
+               </li>
+             </ul>
+           </li>
+         </ul>
+         
+       </div><!-- /.navbar-collapse -->
+     </div><!-- /.container-fluid -->
+   </nav>
+ </div><!--  end navbar -->
+
+</div> <!-- end menu-dropdown -->
+
+
+<div class="main" style="background:transparent;">
+  <div class="container tim-container" id="main-container">
+    <div id="docDeletedMessage">Das von ihnen angeforderte Blatt ist nicht mehr in der Liste enthalten.<br/> Es wurde
+      möglicherweise <b>gelöscht.</b><br/> Starten Sie eine neue <a href="SearchView.html">Suche</a> oder besuchen sie die 
+      <a href="GalleryView.html">Galerie.</a></div>
+
+
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          
+          
+          <br>
+          
+
+          <div class="row" style="padding-top:30px;">
+
+            <!-- Liedblatt Teil-->
+            <div class= "col-md-6">
+             
+             <div><img id="imagecontent" src="" ></div>
+             <div  id="status-icon" > <p id="status-text" class="statiContent">Das Liedbaltt wurde fertig ausgezeichnet</p></div>
+             <div class="statusBelow"><p id="timeStampUser" class="">Username & Timestamp</p></div>
+             <!-- Das Liedbaltt wurde fertig ausgezeichnet -->
+             <!-- Das Liedbaltt wurde noch nicht ausgezeichnet -->
+             <!-- Das Liedbaltt wurde angefangen auszuzeichnen -->
+             <a id="image-link" href="">
+              <button type="button" class="btn" id="desingChangesButtonTab">
+                <img src="../img/icons/screenW.png" style="margin-bottom: 4px;"> <br>
+                <span>Bild in neuem <br>Fenster öffnen</span>
+              </button>
+            </a>
+            
+          </div>
+
+          <!-- Augias Teil-->
+          <div class= "col-md-6">
+            <ul class="nav nav-tabs" id="songSheetContentPanel">
+              <li role="presentation" class="active detailViewContentButton"><a class="headerPanel" href="#" id="songSheetContentButton">Liedtext</a></li>
+              <li role="presentation " class="detailViewContentButton"><a class="headerPanel" href="#" id="songSheetMetaDataButton">Metadaten</a></li>
+              <li role="presentation" class="detailViewContentButton"><a class="headerPanel" href="#" id="songSheetMetaDataSearchButton">Metadatensuche</a></li>
+            </ul>
+            <!-- Liedtext -->
+            <div class="panel-body" id="detailBox1" >
+             
+             <div class="detailBox1">
+
+              <div id="songText" contenteditable class="songTextField">
+                Augias Liedblatt Text
+                
+              </div>
+            </div>
+            <button id="revertChangesText" class="refresh">
+              <i class="glyphicon glyphicon-repeat" id="glyphic"></i><br>
+              <span>Wiederherstellen</span>
+            </button>
+            <button id="clearSongSheetContentButton" class="clean">
+              <img src="../img/icons/clean.png" class="imageClean"><br>
+              <span>Textfeld leeren</span>
+            </button>
+            <div id="songSheetID"></div>
+          </div>
+          <!-- Metadaten -->
+          <div class="panel-body" id="currentMetaDataBox">
+            <div style="padding-bottom: 10px;"> 
+              <button id="revertChangesMetaData" class="refresh">
+                <i class="glyphicon glyphicon-repeat" id="glyphic2"></i><br>
+                <span>Wiederherstellen</span>
+              </button>
+              <button id="clearSongSheetMetaDataButton" class="clean">
+                <img src="../img/icons/clean.png" class="imageClean"><br>
+                <span>Metadaten leeren</span>
+              </button>
+            </div>
+            <br/><br/>
+
+            <label for="inputSignature" class="labelMeta">Signatur Nummer:</label>
+            <div id="inputSignature"  contenteditable class="inboxMetadatenDetailView"></div>
+            
+            <br/><br/>
+            
+            <label for="inputDateFindAid" class="labelMeta">Dat. Findbuch:</label>
+            <div id="inputDateFindAid" contenteditable class="inboxMetadatenDetailView"></div>
+            
+            <br/><br>
+            <label for="inputReceivedOn" class="labelMeta">Erhalten am:</label>
+            <div id="inputReceivedOn" contenteditable class="inboxMetadatenDetailView"></div>
+            
+            <br/><br/>
+
+            <label for="inputOldSignature" class="labelMeta">Altsignatur:</label>
+            <div id="inputOldSignature" contenteditable class="inboxMetadatenDetailView"></div>
+            
+            <br/><br/>
+            
+            <label for="inputVersionNumber" class="labelMeta">Versionsnummer:</label>
+            <div id="inputVersionNumber" contenteditable class="inboxMetadatenDetailView"></div>
+            
+            <br/><br/>
+            
+            <label for="inputMissingCause" class="labelMeta">Fehlt, weil...:</label>
+            <div id="inputMissingCause" contenteditable class="inboxMetadatenDetailView"></div>
+            
+            <br/><br/>
+            
+            <label for="inputOrigin" class="labelMeta">Herkunft:</label>
+            <div id="inputOrigin" contenteditable class="inboxMetadatenDetailView"></div>
+            
+            <br/><br/>
+            
+            <label for="inputTitle" class="labelMeta">Titel: </label>
+            <div id="inputTitle" contenteditable class="inboxMetadatenDetailView"></div>
+            
+            <br/><br/>
+            
+            <label for="inputType" class="labelMeta">Liedgattung: </label>
+            <div id="inputType" contenteditable class="inboxMetadatenDetailView"></div>
+            
+            <br/><br/>
+            
+            <label for="inputIncludes" class="labelMeta">Umfasst:</label>
+            <div id="inputIncludes" contenteditable class="inboxMetadatenDetailView"></div>
+            
+            <br/><br/>
+            
+            <label for="inputIncipit" class="labelMeta">Incipit: </label>
+            <div id="inputIncipit" contenteditable class="inboxMetadatenDetailView"></div>
+            
+            <br/><br/>
+            
+            <label for="inputNumberOfPages" class="labelMeta">Blattzahl:</label>
+            <div id="inputNumberOfPages" contenteditable class="inboxMetadatenDetailView"></div>
+            
+            <br/><br/>
+            
+            <label for="inputSingPlace" class="labelMeta">Sangesort:</label>
+            <div id="inputSingPlace" contenteditable class="inboxMetadatenDetailView"></div>
+            
+            <br/><br/>
+            
+            <label for="inputRemark" class="labelMeta">Bemerkung:</label>
+            <div id="inputRemark" contenteditable class="inboxMetadatenDetailView"></div>
+            
+            <br/><br/>
+            
+            <label for="inputLandscapeArchive" class="labelMeta">Landschaftsarchiv:</label>
+            <div id="inputLandscapeArchive" contenteditable class="inboxMetadatenDetailView"></div>
+            
+            <br/><br/>
+            
+            <label for="inputPublication" class="labelMeta">Veröffentlichung:</label>
+            <div id="inputPublication" contenteditable class="inboxMetadatenDetailView"></div>
+            
+            <br/><br/>
+            
+            <label for="inputSungOn" style="float: left">Gesungen am:</label>
+            <div id="inputSungOn" contenteditable class="inboxMetadatenDetailView"></div>
+            
+            <br/><br/>
+            
+            <label for="inputRecordedOn" class="labelMeta">Aufgezeichnet am:</label>
+            <div id="inputRecordedOn" contenteditable class="inboxMetadatenDetailView"></div>
+            
+            <br/><br/>
+            
+            <label for="inputSubmittedOn" class="labelMeta">Eingesandt am:</label>
+            <div id="inputSubmittedOn" contenteditable class="inboxMetadatenDetailView"></div>
+            
+            <br/><br/>
+            
+            <label for="inputSinger" class="labelMeta">Sänger/in:</label>
+            <div id="inputSinger" contenteditable class="inboxMetadatenDetailView"></div>
+            
+            <br/><br/>
+
+            <label for="inputReference" class="labelMeta">Verweis:</label>
+            <div id="inputReference" contenteditable class="inboxMetadatenDetailView"></div>
+            
+            <br/><br/>
+            
+            <label for="inputHandwrittenSource" class="labelMeta">Quelle:</label>
+            <div id="inputHandwrittenSource" contenteditable class="inboxMetadatenDetailView"></div>
+            
+            <br/><br/>
+            
+            <label for="inputRecorder" class="labelMeta">Aufzeichner:</label>
+            <div id="inputRecorder" contenteditable class="inboxMetadatenDetailView"></div>
+            
+            <br/><br/>
+            
+            <label for="inputArchive" class="labelMeta">Archivort: </label>
+            <div id="inputArchive" contenteditable class="inboxMetadatenDetailView"></div>                              
+          </div>
+          <!-- Metadatensuche -->
+          <div class="panel-body" id="metaDataSearchBox">
+            <div class="form-group">
+              <div class="col-xs-5 selectContainer" class="selectContainer">
+                <select name="language" class="form-control" id="metaSearchSelect">
+                  <option value="signature">Signatur</option>
+                  <option value="incipit">Incipit</option>
+                </select>
+              </div>
+              <div class="input-group">
+                <input type="text" class="form-control" id="metaSearchTextInput" placeholder="Suchen nach...">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" id="metaSearchButton" type="button"><i class="glyphicon glyphicon-search"></i>
+                    <span></span></button>
+                  </span>
+                </div>
+              </div>
+              <div class="scrollAbleMetaWindow">
+                <table class="table table-striped table-hover table-bordered metaDataTable" id="displayMetaResults" ></table>
+              </div>
+              <div id="loading-spinner-div">
+                <p>Suchergebnisse werden geladen...</p>
+                <span class="glyphicon glyphicon-repeat glyphicon-repeat-animate">
+                </span>
+              </div>
+              <div class="showMeta">
+                <button class="btn btn-info" id="showDetailedMetaData" data-toggle="modal" data-target="#metaDetailViewModal">
+                  <i class="glyphicon glyphicon-zoom-in"></i>
+                  <span>Tabelle vergrößern</span>
+                </button>
+                <button class="btn btn-primary start" id="connectMetaData">
+                  <i class="glyphicon glyphicon-ok"></i>
+                  <span>Metadaten bestätigen</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Footer -->
+        <div class="panel-footer">
+          <!-- Der zweite Button und die MetadatenListe wird erst sichtbar, wenn eine Nummer eingetragen wurde. Ansonsten wirds zu verwirrend-->
+          <br><br>
+          <button type="button" class="btn" id="desingChangesButton">
+            <i class="glyphicon glyphicon-send"></i>
+            <span>Als Entwurf speichern</span>
+          </button>
+          <button type="button" class="btn btn-success" id="acceptChangesButton">
+            <i class="glyphicon glyphicon-ok"></i>
+            <span>Liedblatt vollständig</span>
+          </button>
+          <button class="btn btn-primary start" id="refuseChangesButton" data-toggle="modal" data-target="#refuseChangesModal">
+            <i class="glyphicon glyphicon-repeat"></i>
+            <span>Änderungen verwerfen</span>
+          </button>
+          
+          <button data-dz-remove class="btn btn-danger delete" id="deleteSongSheetButton" data-toggle="modal" data-target="#deleteButtonModal">
+            <i class="glyphicon glyphicon-trash"></i>
+            <span>Löschen</span>
+          </button>
+        </div>
+        <div id="editMessage" class="panel panel-success">
+          <div class="panel-heading">
+            <h3 class="panel-title">Upload erfolgreich.</h3>
+          </div>
+        </div> 
+        <div id="designMessage" class="panel panel-info">
+          <div class="panel-heading">
+            <h3 class="panel-title">Als Entwurf gespeichert.</h3>
+          </div>
+        </div> 
+        <div id="errorMessage" class="panel panel-danger">
+          <div class="panel-heading">
+            <h3 id="errorMessage-panel-title" class="panel-title">
+              Upload fehlgeschlagen
+            </h3>
+          </div>
+        </div>
+        
+
+        <!-- Delete Button Modal -->
+        <div id="deleteButtonModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Liedblatt löschen</h4>
+              </div>
+              <div class="modal-body">
+                <p>Sind Sie sicher, dass Sie das Liedblatt (Bild, Text und Metadaten) komplett entfernen wollen?</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
+                <button type="button" class="btn btn-danger delete" data-dismiss="modal" id="confirmDeleteSongSheetButton">Liedblatt löschen</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- RefuseChanges Button Modal -->
+        <div id="refuseChangesModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Änderungen verwerfen</h4>
+              </div>
+              <div class="modal-body">
+                <p>Sind Sie sicher, dass Sie alle Änderungen die getätigt wurden (Liedtext, Metadaten) verwerfen wollen und das Dokument auf den letzten gesicherten Zustand zurückführen wollen?</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
+                <button type="button" class="btn btn-danger delete" data-dismiss="modal" id="confirmRefuseChangesButton">Änderungen endgültig verwerfen</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- Metadaten Detailview Modal -->
+        <div id="metaDetailViewModal" class="modal fade" role="dialog">
+          <div class="modal-dialog metaDetailViewModal">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" id="cancelButtonModal1">&times;</button>
+                <h4 class="modal-title">Metadaten Details</h4>
+              </div>
+              <div class="modal-body">
+                <div class="panel-body" id="metaDataSearchBoxModal">
+                  <div class="form-group">
+                    <div class="col-xs-5 selectContainer" class="selectContainer2">
+                      <select name="language" class="form-control" id="metaSearchSelectModal">
+                        <option value="signature">Signatur</option>
+                        <option value="incipit">Incipit</option>
+                      </select>
+                    </div>
+                    <div class="input-group">
+                      <input type="text" class="form-control" id="metaSearchTextInputModal" placeholder="Suchen nach...">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" id="metaSearchButtonModal" type="button"><i class="glyphicon glyphicon-search"></i>
+                          <span></span></button>
+                          
+                        </span>
+                      </div>
+                    </div>
+                    <div class="scrollAbleMetaWindow">
+                      <table class="table table-striped table-hover table-bordered metaDataTable" id="displayMetaResultsModal" ></table>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                <span id="loading-spinner-div-modal" style="margin-right: 20px">
+                  <span>Suchergebnisse werden geladen...</span>
+                  <span class="glyphicon glyphicon-repeat glyphicon-repeat-animate">
+                  </span>
+                </span>
+                  <button type="button" class="btn btn-default" data-dismiss="modal" id="cancelButtonModal2">Abbrechen</button>
+                  <button class="btn btn-primary" data-dismiss="modal" id="connectMetaDataModal">
+                    <i class="glyphicon glyphicon-ok"></i>
+                    <span>Metadaten bestätigen</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+          
+        </div>  
+        <div>
+          <br>
+          <br>
+          <br>
+          
+          <button id="leftLink" class="btn-circle2L" style="">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            <span><img id="imgLeft" class="imgLeft" src=""></span>
+          </button>
+          
+          <button id="rightLink" class="btn-circle2R" style="">
+            <span><img id="imgRight" class="imgRight" src=""></span>
+            <i class="glyphicon glyphicon-chevron-right"></i>
+            
+          </button>
+
+          
+        </div>
+        
+        
+      </div>   
+    </div>
+  </div>
+  <!-- main-->
+
+
+  <!-- Media Slider Carousel BS3 Link:"http://bootsnipp.com/snippets/featured/media-slider-carousel-bs3" für JS-->
+<!--
+</div>
+<div class="container">
+  
+  <div class='row'>
+    
+      <div class="carousel slide media-carousel" id="media">
+        <div class="carousel-inner">
+          <div class="item  active">
+            <div class="row">
+              <div class="col-md-3">
+                <a class="thumbnail" href="LiedblattDetailView.html"><img alt="" src="../img/Liedblaetter/A24.jpg"></a>
+              </div>          
+              <div class="col-md-3">
+                <a class="thumbnail" href="LiedblattDetailView.html"><img alt="" src="../img/Liedblaetter/A24.jpg"></a>
+              </div>
+              <div class="col-md-3">
+                <a class="thumbnail" href="LiedblattDetailView.html"><img alt="" src="../img/Liedblaetter/A24.jpg"></a>
+              </div>   
+              <div class="col-md-3">
+                <a class="thumbnail" href="LiedblattDetailView.html"><img alt="" src="../img/Liedblaetter/A24.jpg"></a>
+              </div>      
+            </div>
+          </div>
+          <div class="item">
+            <div class="row">
+              <div class="col-md-3">
+                <a class="thumbnail" href="LiedblattDetailView.html"><img alt="" src="../img/Liedblaetter/A24.jpg"></a>
+              </div>          
+              <div class="col-md-3">
+                <a class="thumbnail" href="LiedblattDetailView.html"><img alt="" src="../img/Liedblaetter/A24.jpg"></a>
+              </div>
+              <div class="col-md-3">
+                <a class="thumbnail" href="LiedblattDetailView.html"><img alt="" src="../img/Liedblaetter/A24.jpg"></a>
+              </div> 
+              <div class="col-md-3">
+                <a class="thumbnail" href="LiedblattDetailView.html"><img alt="" src="../img/Liedblaetter/A24.jpg"></a>
+              </div>        
+            </div>
+          </div>
+          <div class="item">
+            <div class="row">
+              <div class="col-md-3">
+                <a class="thumbnail" href="LiedblattDetailView.html"><img alt="" src="../img/Liedblaetter/A24.jpg"></a>
+              </div>          
+              <div class="col-md-3">
+                <a class="thumbnail" href="LiedblattDetailView.html"><img alt="" src="../img/Liedblaetter/A24.jpg"></a>
+              </div>
+              <div class="col-md-3">
+                <a class="thumbnail" href="LiedblattDetailView.html"><img alt="" src="../img/Liedblaetter/A24.jpg"></a>
+              </div>  
+              <div class="col-md-3">
+                <a class="thumbnail" href="LiedblattDetailView.html"><img alt="" src="../img/Liedblaetter/A24.jpg"></a>
+              </div>     
+            </div>
+          </div>
+        </div>
+        <a data-slide="prev" href="#media" class="left carousel-control">‹</a>
+        <a data-slide="next" href="#media" class="right carousel-control">›</a>
+      </div>                          
+    </div>
+  
+</div>
+-->
+
+
+<!-- end main -->
+<div id="footer">
+  <div class="container" id="footer-container" > 
+    <div class="col-md-9 col-md-offset-2">
+      <div class="row">
+         <div class="col-sm-5">
+          <h4>Ansprechpartner</h4>
+          <p><a href="mailto: manuel.burghardt@ur.de">Dr. Manuel Burghardt</a><br/>
+            Universität Regensburg<br/>
+            Universitätsstraße 1, <br/>
+            Regensburg, Deutschland
+          </p>
+        </div>
+        
+        <div class="col-sm-5" id="footerHilfeLinks">
+          <h4>Hilfe Links</h4>
+          <p>
+           <a href="HelpView.html">Hilfe</a>
+           & <a href="HelpView.html#faqanchor">FAQ</a><br/>
+           <a href="HelpView.html#glossaranchor">Glossar</a><br/>
+           <a href="ImpressumView.html#contactsanchor">Kontakt</a><br/>
+           <a href="ImpressumView.html#impresssanchor">Impressum</a>
+         </p>
+         <br>
+       </div>
+     </div>
+   </div>           
+ </div>
+</div>
+<span id="test"></span>
+</body>
+
+<script src="../js/libs/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="../js/libs/bootstrap.js" type="text/javascript"></script>
+<script src="../js/libs/ct-navbar.js"></script>
+<script src="../js/libs/shiftzoom/shiftzoom.js"></script>
+<script src="../js/libs/js.cookie.js"></script>
+<script src="../js/Authentication.js"></script>
+<script src="../js/Global.js"></script>
+
+<script src="../js/songSheet/SongSheet.js" type="text/javascript"></script>
+<script src="../js/songSheet/SongSheetController.js" type="text/javascript"></script>
+<script src="../js/songSheet/MetaSearchModel.js" type="text/javascript"></script>
+<script src="../js/songSheet/MetaSearchView.js" type="text/javascript"></script>
+<script src="../js/songSheet/SongSheetModel.js" type="text/javascript"></script>
+<script src="../js/songSheet/SongSheetView.js" type="text/javascript"></script>
+
+<script>
+$("#menu-item-detail").addClass("active");
+SongSheet.init();
+
+</script>
+
+</html>

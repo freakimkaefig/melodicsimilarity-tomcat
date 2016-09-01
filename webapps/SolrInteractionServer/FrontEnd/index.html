@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <link href="css/bootstrap.css" rel="stylesheet" />
+    
+  <link href="css/pe-icon-7-stroke.css" rel="stylesheet" />
+  <link href="css/ct-navbar.css" rel="stylesheet" />  
+  <link rel="stylesheet" type="text/css" href="css/styleSheet.css">
+  <link rel="shortcut icon" href="img/MusikFlowerTab.svg" type="image/x-icon" />
+
+  <title>Digitale Liedblattsammlung</title>
+    <!--     Font Awesome     -->
+    
+    <style>
+        
+    </style>
+</head>
+
+<body>
+ <div id="navbar-full">
+    <div id="navbar">
+       <!--    
+        navbar-default can be changed with navbar-ct-blue navbar-ct-azzure navbar-ct-red navbar-ct-green navbar-ct-orange  
+        -->
+        <nav class="navbar navbar-ct-grey navbar-fixed-top navbar-transparent" role="navigation">
+          
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand navbar-brand-logo" href="#">
+                    <div class="logo">
+                      <img id= "logo" src="img/MusikFlower.svg">
+                    </div>
+                    
+                    <div class="brand">Digitale Liedblattsammlung </div>
+              </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                    
+                    
+                    
+                    <li>
+                        <a href="wp/SearchView.html">
+                            <i class="pe-7s-search">
+                            </i>
+                            <p>Suche</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="wp/GalleryView.html?start=0&111">
+                            <i class="pe-7s-musiclist">
+                            </i>
+                            <p>Galerie</p>
+                        </a>
+                    </li>  
+                    <li>
+                        <a href="wp/LiedblattDetailView.html">
+                            <i class="pe-7s-note">
+                            </i>
+                            <p>Letztes Blatt</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="wp/UploadView.html">
+                            <i class="pe-7s-cloud-upload">
+                            </i>
+                            <p>Hochladen</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="wp/AnalyseView.html">
+                            <i class="pe-7s-graph">
+                            </i>
+                            <p>Statistik</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="wp/HelpView.html">
+                            <i class="pe-7s-help1">
+                            </i>
+                            <p>Hilfe</p>
+                        </a>
+                    </li> 
+                    <!-- Login Start-->
+                    <li id="login-dropdown" class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="pe-7s-user"></i>
+                                <!--class="pe-7s-id"-->
+                                <p id="login-info">Admin Login</p>
+                            </a>
+                          <ul id="login-dp" class="dropdown-menu">
+                            <li><form class="form" role="form" accept-charset="UTF-8" id="login-nav" novalidate>
+                                        <div id="username-form" class="form-group">
+                                             <label class="sr-only" for="usernameLogin">Email address</label>
+                                             <input  class="form-control" id="usernameLogin" placeholder="Benutzername" required>
+                                        </div>
+                                        <div id="password-form" class="form-group">
+                                             <label class="sr-only" for="passwordLogin">Password</label>
+                                             <input type="password" class="form-control" id="passwordLogin" placeholder="Passwort" required>
+                                             <!--
+                                             <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+                                             -->
+                                        </div>
+                                        <div class="form-group">
+                                             <button id="login" class="btn btn-primary btn-block">Anmelden</button>
+                                        </div>
+                                        <div id="failed-login">Falscher Nutzername oder Passwort</div>
+                                        <div class="form-group">
+                                             <div id="login-text"></div>
+                                             <button id="logout" class="btn btn-pdelete btn-block">Abmelden</button>
+                                        </div>
+                                 </form>
+                            </li>
+                          </ul>
+                    </li>
+                    <!-- Login End -->
+               </ul>
+              
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+       <div class="blurred-container">
+            <div class="img-src" style="background-image: url('img/home/Archiv-Start_klein.jpg')"></div>
+        </div>
+    </div><!--  end navbar -->
+
+</div> <!-- end menu-dropdown -->
+<div class="main">
+    <div class="container tim-container" style="padding-top:3%;">
+      
+      <!-- Example row of columns -->
+      <div class="row" style="text-align:center;">
+        
+          <p id="textStarterFirst">Liedblatt</p>
+           <p id="textStarterRest">Die Liedblätter sind eine Sammlung von historischen Volksliedern. Sie wurden von verschiedenen Kulturhistorikern aufgezeichnet und archiviert. Im Jahre 2001 wurden der Universitätsbibliothek Regensburg umfangreiche Kernbestände mehrerer Sammlungen übergeben, die nun durch eine umfassende Digitalisierung zugänglich gemacht werden sollen.<br/>
+
+            Die Blätter beinhalten teilweise einmalige Schriftdokumente zur Volksmusikforschung und umfassen Melodie, Text, sowie weitere Hintergrundinformationen zu ihrem Ursprung. Dieses Programm soll bei der Digitalisierung und Erschließung dieser Daten helfen und es ermöglichen, die zahlreichen Bestände der Universitätsbibliothek zu durchsuchen.<br/><br/>
+            In einem ersten Schritt werden die Liedblätter eingescannt. Die gescannten Dokumente werden anschließend mit Hilfe von Optical Character Recognition (kurz OCR) untersucht. Auf diese Weise wird versucht, die Liedtexte automatisch zu erkennen. Aufgrund der variablen Qualität der Liedblätter ist dieses Verfahren jedoch sehr fehleranfällig und erzeugt in den seltensten Fällen brauchbare Transkriptionen. Daher soll dieses Programm helfen, die handschriftlichen Texte auf den Blättern zu digitalisieren. Anhand des gescannten Bildes kann der Text übertragen werden.<br/><br/>
+            Zudem existieren bereits digitale Tabellen der Metadaten, die händisch erfasst worden sind und meist über die Signatur eindeutig auf ein bestimmtes Blatt beziehen.<br/>
+            
+            Dieser Datenbestand soll genutzt werden um die gescannten Blätter mit zusätzlichen Informationen anzureichern.<br/><br/>
+            Auf der <a href="wp/HelpView.html">Hilfe</a>-Seite erfahren Sie alles über den Umgang mit diesem Programm.
+
+          <br>
+         </p>
+</div>
+ </div>
+     
+<!-- main-->
+<!-- +++++ Footer Section +++++ -->   
+    <div id="footer">
+        <div class="container" > 
+          <div class="col-md-9 col-md-offset-2">
+            <div class="row">
+                <div class="col-sm-5">
+                  <h4>Ansprechpartner</h4>
+                  <p><a href="mailto: manuel.burghardt@ur.de">Dr. Manuel Burghardt</a><br/>
+                        Universität Regensburg<br/>
+                        Universitätsstraße 1, <br/>
+                        Regensburg, Deutschland
+                  </p>
+                </div>
+    
+              <div class="col-sm-5" style="text-align:right;">
+                  <h4>Hilfe Links</h4>
+                    <p>
+                       <a href="wp/HelpView.html">Hilfe</a>
+                        & <a href="wp/HelpView.html#faqanchor">FAQ</a><br/>
+                        <a href="wp/HelpView.html#glossaranchor">Glossar</a><br/>
+                        <a href="wp/ImpressumView.html#contactsanchor">Kontakt</a><br/>
+                        <a href="wp/ImpressumView.html#impresssanchor">Impressum</a>
+                    </p>
+                  <br>
+              </div>
+            </div>
+          </div> 
+
+        </div>
+    </div>
+  
+<!-- +++++ Footer Section Ende +++++ -->
+        
+</div>
+
+<!-- end main -->
+
+</body>
+
+  <script src="js/libs/jquery-1.10.2.js" type="text/javascript"></script>
+  <script src="js/libs/bootstrap.js" type="text/javascript"></script>
+  <script src="js/libs/ct-navbar.js"></script>
+  <script src="js/libs/js.cookie.js"></script>
+  <script src="js/Authentication.js"></script>
+  <script src="js/Global.js"></script>
+
+</html>
