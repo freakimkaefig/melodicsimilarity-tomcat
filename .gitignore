@@ -8,6 +8,7 @@ vendor/
 .env
 *.log
 
-logs/
+logs/*.txt
+logs/*.log
 work/
 *.war
