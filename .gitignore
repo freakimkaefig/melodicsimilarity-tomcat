@@ -10,5 +10,6 @@ vendor/
 
 logs/*.txt
 logs/*.log
+logs/*.out
 work/
 *.war
